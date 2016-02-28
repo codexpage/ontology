@@ -15,8 +15,18 @@ public class DBConnection {
 	public final static String DB_DRIVER_CLASS =
 		"org.mariadb.jdbc.Driver";
 	// 连接字符串URL
-	public final static String DB_URL =
-        "jdbc:mariadb://localhost:3306/ontology";
+	public  static String DB_URL =
+        "jdbc:mariadb://localhost:3306/";
+	public static String getDbUrl() {
+		return DB_URL;
+	}
+	public static void setDbUrl(String str){
+		DB_URL=DB_URL+str;
+		System.out.println(DB_URL);
+		System.out.println("update:"+str);
+	}
+
+
 	// 登录用户名
     public final static String USERNAME = "root";
     // 登录口令
@@ -43,6 +53,7 @@ public class DBConnection {
 		} catch (SQLException e) {
 			// TODO 自动生成 catch 块
 			e.printStackTrace();
+			System.out.println("connection error");
 		}
 		return conn;
 	}
